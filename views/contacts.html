@@ -63,7 +63,15 @@
         <label for="exampleFormControlTextarea1" class="form-label">Comentarios e inquietudes</label>
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
       </div>
-      <button type="submit" class="btn btn-primary">Enviar</button>
+      <button id="miBoton" type="submit" class="btn btn-primary">Enviar</button>
+
+      <script>
+        // Agregar un evento de clic al botón
+        document.getElementById("miBoton").addEventListener("click", function() {
+            alert("¡Has enviado la información!");
+        });
+    </script>
+
 </div>
 </form> 
         </div>
