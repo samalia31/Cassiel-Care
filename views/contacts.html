@@ -79,6 +79,79 @@
     </div>
   </div>
 
+
+  <div class="card mb-3 g-2" style="max-width: 100%;" id="info">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header">Registro de servicios </div>
+      <div class="card-body">
+          <h5 class="card-title">Animate a ser parte de nuestra familia.</h5>
+          <p class="card-text">Permanentemente recibimos tu solicitud de servicio, igresa los servicios que requieres y el tiempo que necesites para asegurar el bienestar de tu familiar.</p>
+          
+        </div>
+      </div>
+    </div>
+
+    <div id="pedido">
+      <h4>Realizar Pedido del servicio</h4>
+      <label for="producto">Servicio:</label>
+      <input type="text" id="producto">
+
+      <label for="cantidad">Horas:</label>
+      <input type="number" id="cantidad">
+
+      <button class="btn btn-primary" onclick="agregarProducto()">Agregar servicio</button>
+
+      <h5>Resumen del Servicio:</h5>
+      <ul id="listaPedido"></ul>
+
+      <button  class="btn btn-primary" onclick="confirmarPedido()">Confirmar servicio</button>
+  </div>
+
+  <script>
+      var listaPedido = [];
+
+      function agregarProducto() {
+          var producto = document.getElementById("producto").value;
+          var cantidad = document.getElementById("cantidad").value;
+
+          if (producto && cantidad) {
+              listaPedido.push({ producto: producto, cantidad: cantidad });
+              mostrarResumenPedido();
+          } else {
+              alert("Por favor, ingrese el producto y la cantidad.");
+          }
+      }
+
+      function mostrarResumenPedido() {
+          var listaPedidoElement = document.getElementById("listaPedido");
+          listaPedidoElement.innerHTML = "";
+
+          listaPedido.forEach(function (item) {
+              var listItem = document.createElement("li");
+              listItem.textContent = item.producto + " - Cantidad: " + item.cantidad;
+              listaPedidoElement.appendChild(listItem);
+          });
+      }
+
+      function confirmarPedido() {
+          if (listaPedido.length > 0) {
+              alert("Servicio registrado. Gracias por su solicitud.");
+              // Aquí puedes realizar acciones adicionales, como enviar el pedido al servidor.
+              // Por ejemplo, podrías usar AJAX para enviar el pedido a un servidor.
+          } else {
+              alert("Agrega al menos un  al servicio antes de confirmar.");
+          }
+      }
+  </script>
+
+  </div>
+
+
+
+
+
     <div class="p-3 mb-2 bg-info text-white"> <h3><pre>CASSIEL CARE        Atención al cliente: 3002253376      Tu bienestar, nuestro compromiso.</pre> </h3></div>
-</body>
+  </body>
 </html>
